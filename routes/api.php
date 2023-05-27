@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CurrencyController;
+use App\Http\Controllers\Api\CurrencyController;
+use App\Http\Controllers\Api\EmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,4 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//currency
 Route::get('rate', [CurrencyController::class, 'fetchRate']);
+
+//email
+Route::post('subscribe', [EmailController::class, 'create']);
+//Route::post('sendEmails', [EmailController::class, 'send']);
