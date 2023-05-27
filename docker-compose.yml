@@ -10,7 +10,7 @@ services:
         environment:
             TZ: Europe/Kiev
         ports:
-            - "8000:80"
+            - "80:80"
         volumes:
             - ./:/var/www
             - ./Docker/nginx/conf.d/:/etc/nginx/conf.d
