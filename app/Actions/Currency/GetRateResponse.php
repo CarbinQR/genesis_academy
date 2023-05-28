@@ -3,7 +3,6 @@
 namespace App\Actions\Currency;
 
 use App\Contracts\Actions\Response as ResponseInterface;
-use Illuminate\Http\Response;
 
 class GetRateResponse implements ResponseInterface
 {
@@ -14,8 +13,8 @@ class GetRateResponse implements ResponseInterface
         $this->rate = $rate;
     }
 
-    public function getResponse(): Response
+    public function getResponse(): int
     {
-        return response($this->rate);
+        return $this->rate;
     }
 }

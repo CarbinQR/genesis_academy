@@ -20,4 +20,4 @@ Route::get('rate', [CurrencyController::class, 'fetchRate']);
 
 //email
 Route::post('subscribe', [EmailController::class, 'create']);
-//Route::post('sendEmails', [EmailController::class, 'send']);
+Route::post('sendEmails', [EmailController::class, 'send']);

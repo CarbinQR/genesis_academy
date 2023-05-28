@@ -6,7 +6,7 @@ use App\Constants\Email\EmailConstants;
 
 final class AddEmailAction
 {
-    public function execute(AddEmailRequest $request): AddEmailResponse
+    public function execute(AddEmailRequest $request): void
     {
         $emails = [];
 
@@ -27,7 +27,5 @@ final class AddEmailAction
         } else {
             abort(409, 'E-mail вже є в базі даних');
         }
-
-        return new AddEmailResponse();
     }
 }

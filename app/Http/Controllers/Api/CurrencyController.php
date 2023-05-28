@@ -11,9 +11,11 @@ class CurrencyController extends Controller
 {
     public function fetchRate(Request $request, GetRateAction $action)
     {
-        return $action->execute(new GetRateRequest(
+        $rate = $action->execute(new GetRateRequest(
                 $request->input('currency_gecko_id'),
                 $request->input('vs_currency_gecko_id'))
         )->getResponse();
+
+        return $this->successResponse($rate);
     }
 }
