@@ -10,12 +10,12 @@ use App\Actions\Email\SendEmailAction;
 use App\Actions\Email\SendEmailRequest;
 use App\Constants\Currency\CurrencyConstants;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Email\StoreEmailRequest;
 use Illuminate\Http\Response;
 
 class EmailController extends Controller
 {
-    public function create(Request $request, AddEmailAction $action): Response
+    public function create(StoreEmailRequest $request, AddEmailAction $action): Response
     {
         $action->execute(new AddEmailRequest($request->input('email')));
 
