@@ -18,7 +18,7 @@ final class AddEmailAction
         $requestedEmail = strtolower($request->getEmail());
 
         while (($data = fgetcsv($file, 1000, ";")) !== false) {
-            $emails[] = strtolower($data[0]);
+            $emails[] = $data[0];
         }
 
         abort_if(in_array($requestedEmail, $emails, true), 409, 'E-mail вже є в базі даних');
