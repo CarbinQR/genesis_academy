@@ -22,7 +22,7 @@ class StoreEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|string|max:255'
+            'email' => 'required|email|string|max:255'
         ];
     }
 }
