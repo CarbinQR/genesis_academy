@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CurrencyController;
+use App\Http\Controllers\Api\EmailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//currency
+Route::get('rate', [CurrencyController::class, 'fetchRate']);
+
+//email
+Route::post('subscribe', [EmailController::class, 'create']);
+Route::post('sendEmails', [EmailController::class, 'send']);
