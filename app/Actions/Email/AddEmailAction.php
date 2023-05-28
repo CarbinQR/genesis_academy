@@ -21,11 +21,9 @@ final class AddEmailAction
             $emails[] = strtolower($data[0]);
         }
 
-        if (!in_array($requestedEmail, $emails, true)) {
-            fputcsv($file, [$requestedEmail], ';');
-            fclose($file);
-        } else {
-            abort(409, 'E-mail вже є в базі даних');
-        }
+        abort_if(in_array($requestedEmail, $emails, true), 409, 'E-mail вже є в базі даних');
+
+        fputcsv($file, [$requestedEmail], ';');
+        fclose($file);
     }
 }

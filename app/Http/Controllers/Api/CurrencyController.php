@@ -16,6 +16,6 @@ class CurrencyController extends Controller
                 $request->input('vs_currency_gecko_id'))
         )->getResponse();
 
-        return $this->successResponse($rate);
+        return response($rate);
     }
 }
