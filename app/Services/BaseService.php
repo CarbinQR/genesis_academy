@@ -30,7 +30,7 @@ class BaseService
 
             return json_decode($response->getBody()->getContents());
         } catch (Exception $e) {
-            abort(400, 'Invalid status value');
+            abort($e->getCode(), $e->getMessage());
         }
     }
 }

@@ -18,16 +18,16 @@ class CoinGeckoService extends BaseService implements CoinGeckoServiceInterface
     /**
      * @inheritDoc
      */
-    public function getCurrencyRate(string $currencyId, string $vsCurrencyId): int
+    public function getCurrencyRate(string $currencyGeckoId, string $vsCurrencyGeckoId): int
     {
         $url = $this->baseUrl . config('coingecko.config.routes.price');
         $params = [
-            'ids' => $currencyId,
-            'vs_currencies' => $vsCurrencyId
+            'ids' => $currencyGeckoId,
+            'vs_currencies' => $vsCurrencyGeckoId
         ];
 
         $response = $this->get($url, $params);
 
-        return $response->$currencyId->$vsCurrencyId;
+        return $response->$currencyGeckoId->$vsCurrencyGeckoId;
     }
 }
